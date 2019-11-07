@@ -1,41 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 
-import styles from "./styles.css";
+import Terminal from "./Terminal";
 
-function App() {
-  const [history, setHistory] = useState([]);
-  const [command, setCommand] = useState("");
-
-  function handleCommandChange(event) {
-    setCommand(event.target.value);
-  }
-
-  function handleCommandSubmit(event) {
-    event.preventDefault();
-    setHistory([...history, { command, response: "..." }]);
-    setCommand("");
-  }
-
-  return (
-    <>
-      {history.map(h => (
-        <>
-          {h.command}
-          <br />
-          {h.response}
-          <br />
-        </>
-      ))}
-
-      <div>
-        <form onSubmit={handleCommandSubmit}>
-          &gt; <input onChange={handleCommandChange} value={command} />
-        </form>
-      </div>
-    </>
-  );
+function handleCommand(command) {
+  if (command === "hoi") return "ook hoi";
+  return null;
 }
+
+const App = () => <Terminal handleCommand={handleCommand} />;
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
