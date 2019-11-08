@@ -11,6 +11,7 @@ input {
   color: White;
   font-family: monospace;
   font-size: 12pt;
+  width: 700px;
 }
 
 input:focus {

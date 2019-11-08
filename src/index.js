@@ -4,8 +4,14 @@ import ReactDOM from "react-dom";
 import Terminal from "./Terminal";
 
 function handleCommand(command) {
-  if (command === "hoi") return "ook hoi";
-  return null;
+  switch (command) {
+    case "Wait, what? Is this a terminal built with React?":
+      return "Yeah sure, why not?";
+    case "That's pretty cool!":
+      return "So is React! :)";
+    default:
+      return "Command not found";
+  }
 }
 
 const App = () => <Terminal handleCommand={handleCommand} />;
