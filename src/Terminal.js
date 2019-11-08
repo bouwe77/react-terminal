@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Terminal.module.css";
+import uuidv4 from "uuid/v4";
 
 export default ({ handleCommand }) => {
   const [history, setHistory] = useState([]);
@@ -13,21 +14,22 @@ export default ({ handleCommand }) => {
     event.preventDefault();
 
     let response = handleCommand(command);
-    if (!response) response = "invalid command";
 
-    setHistory([...history, { command, response }]);
+    setHistory([...history, { id: uuidv4(), command, response }]);
     setCommand("");
   }
+
+  const Command = ({ command }) => <div>&gt; {command}</div>;
+
+  const Response = ({ response }) => (response ? <div>{response}</div> : null);
 
   return (
     <>
       {history.map(h => (
-        <>
-          &gt; {h.command}
-          <br />
-          {h.response}
-          <br />
-        </>
+        <div key={h.id}>
+          <Command command={h.command} />
+          <Response response={h.response} />
+        </div>
       ))}
 
       <div>
