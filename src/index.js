@@ -5,10 +5,14 @@ import Terminal from "./Terminal";
 
 function handleCommand(command) {
   switch (command) {
-    case "Wait, what? Is this a terminal built with React?":
-      return "Yeah sure, why not?";
-    case "That's pretty cool!":
-      return "So is React! :)";
+    case "?":
+      return "The following commands are supported: hello, moio and miep";
+    case "hello":
+      return "Yeah, hello to you too :)";
+    case "moio":
+      return "Ja moi ee'm";
+    case "miep":
+      return "Kees en Miep";
     default:
       return "Command not found";
   }
