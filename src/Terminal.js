@@ -34,7 +34,7 @@ export default ({ handleCommand }) => {
 
       <div>
         <form onSubmit={handleCommandSubmit}>
-          &gt; <input onChange={handleCommandChange} value={command} />
+          &gt; <input onChange={handleCommandChange} value={command} className="cursor" />
         </form>
       </div>
     </>

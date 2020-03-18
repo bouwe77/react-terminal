@@ -1,19 +1,12 @@
-body {
-  background-color: Black;
-  font-family: monospace;
-  color: White;
-  font-size: 12pt;
-}
-
-input {
+input[class="cursor"] {
   border: 0;
   background-color: Black;
   color: White;
   font-family: monospace;
   font-size: 12pt;
-  width: 700px;
+  width: 300px;
 }
 
-input:focus {
+input[class="cursor"]:focus {
   outline: none;
 }
