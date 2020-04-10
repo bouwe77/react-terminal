@@ -3,19 +3,45 @@ import ReactDOM from "react-dom";
 import "./styles.css";
 import Terminal from "./Terminal";
 
-function handleCommand(command) {
-  switch (command) {
-    case "?":
-      return "The following commands are supported: hello, moio and miep";
-    case "hello":
-      return "Yeah, hello to you too :)";
-    case "moio":
-      return "Ja moi ee'm";
-    case "miep":
-      return "Kees en Miep";
-    default:
-      return "Command not found";
+const commands = [
+  {
+    text: "hello",
+    handle: () => "Hello to you too :)"
+  },
+  {
+    text: "moio",
+    handle: () => "Ah goeie!"
+  },
+  {
+    text: "hondenskront",
+    handle: () => "is vies"
   }
+];
+
+function displayAllCommands() {
+  return (
+    <>
+      The following commands are available:
+      <br />
+      <br />
+      {commands.map(command => (
+        <>
+          &nbsp; &nbsp;
+          {command.text}
+          <br />
+        </>
+      ))}
+    </>
+  );
+}
+
+function handleCommand(text) {
+  if (text === "?" || text === "help") return displayAllCommands();
+
+  const command = commands.find(command => command.text === text);
+  if (!command) return "Invalid command.";
+
+  return command.handle();
 }
 
 const App = () => <Terminal handleCommand={handleCommand} />;
