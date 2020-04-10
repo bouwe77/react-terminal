@@ -5,19 +5,15 @@ import Terminal from "./Terminal";
 
 const commands = [
   {
-    text: "hello",
-    handle: () => "Hello to you too :)",
-    description: "The hello command."
+    text: "bouwe",
+    handle: () =>
+      "That's me! :) I am Bouwe, 42 years old, from Drachten, Netherlands. I am a software engineer.",
+    description: "More about me."
   },
   {
-    text: "moio",
-    handle: () => "Ah goeie!",
-    description: "This is another command."
-  },
-  {
-    text: "hondenskront",
-    handle: () => "is vies",
-    description: "This is a dirty command..."
+    text: "contact",
+    handle: () => "You can contact me on Twitter: @bouwe",
+    description: "Ways to contact me."
   }
 ];
 
