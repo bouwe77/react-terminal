@@ -16,14 +16,11 @@ const commands = [
   { text: "niks", handle: () => {} }
 ];
 
-function handleCommand(text) {
-  const command = commands.find(command => command.text.toUpperCase() === text.toUpperCase());
-  if (!command) return "Invalid command.";
-
-  return command.handle();
-}
-
-const App = () => <Terminal handleCommand={handleCommand} />;
+const App = () => (
+  <>
+    <Terminal commands={commands} />
+  </>
+);
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
