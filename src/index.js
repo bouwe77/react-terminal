@@ -4,16 +4,15 @@ import "./styles.css";
 import Terminal from "./Terminal";
 
 const commands = [
+  // Valid command: "hello"
   {
-    text: "bouwe",
-    handle: () =>
-      "That's me! :) I am Bouwe, 42 years old, from Drachten, Netherlands. I am a software engineer."
+    expression: /hello/i,
+    handle: () => "Hello to you too :)"
   },
-  {
-    text: "contact",
-    handle: () => "You can contact me on Twitter: @bouwe"
-  },
-  { text: "niks", handle: () => {} }
+  // Valid command: "no response"
+  { expression: /no\sresponse/i, handle: () => {} },
+  // Valid command: "go" with optional additional arguments, for example: "go west".
+  { expression: /go\s?(.*)/i, handle: command => "OK, " + command }
 ];
 
 const App = () => <Terminal commands={commands} />;
