@@ -16,11 +16,7 @@ const commands = [
   { text: "niks", handle: () => {} }
 ];
 
-const App = () => (
-  <>
-    <Terminal commands={commands} />
-  </>
-);
+const App = () => <Terminal commands={commands} />;
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
