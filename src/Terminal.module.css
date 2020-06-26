@@ -5,6 +5,8 @@ input[class="cursor"] {
   font-family: monospace;
   font-size: 12pt;
   width: 300px;
+  margin: 0;
+  padding: 0;
 }
 
 input[class="cursor"]:focus {
