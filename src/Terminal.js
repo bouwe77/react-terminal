@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import CommandLine from './CommandLine'
 import History from './History'
-import uuidv4 from 'uuid/v4'
+import { v4 as uuidv4 } from 'uuid'
 
 const Terminal = ({ commands }) => {
   const [history, setHistory] = useState([])
