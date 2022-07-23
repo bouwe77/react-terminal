@@ -1,5 +1,6 @@
 const commands = [
-  // Valid command: "hello"
+  // The "hello" command is the simplest command: It just prints a message.
+  // It does not have arguments and does nothing with the given command.
   {
     expression: /hello/i,
     help: {
@@ -11,7 +12,7 @@ const commands = [
     },
   },
 
-  // Valid command: "no response"
+  // The "no response" command does not write a response to the terminal.
   {
     expression: /no\sresponse/i,
     help: {
@@ -21,7 +22,8 @@ const commands = [
     handle: () => {},
   },
 
-  // Valid command: "go" with additional arguments, for example: "go west".
+  // The "go" command supports arguments, which are just being printed,
+  // but you could do something with it.
   {
     expression: /go\s(.*)/i,
     help: {
@@ -29,6 +31,12 @@ const commands = [
       description: 'Go to the specified [direction]',
     },
     handle: (command) => "OK, let's " + command,
+  },
+
+  // The "yolo" command is a command that does not have a help text.
+  {
+    expression: /yolo/i,
+    handle: () => 'YOLO',
   },
 ]
 
