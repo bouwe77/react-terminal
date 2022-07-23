@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import CommandLine from './CommandLine'
 import Help from './Help'
 import History from './History'
@@ -14,6 +14,7 @@ const defaultHelpCommand = {
 
 const Terminal = ({ commands }) => {
   const [history, setHistory] = useState([])
+  const bottomRef = useRef(null)
 
   const helpCommand = {
     ...defaultHelpCommand,
@@ -34,10 +35,16 @@ const Terminal = ({ commands }) => {
     setHistory([...history, { id: history.length + 1, command: commandText, response }])
   }
 
+  useEffect(() => {
+    if (!bottomRef.current) return
+    bottomRef.current.scrollIntoView({ behavior: 'smooth' })
+  }, [history])
+
   return (
     <>
       <History history={history} />
       <CommandLine handleCommand={handleCommand} />
+      <div ref={bottomRef} />
     </>
   )
 }
