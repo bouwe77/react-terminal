@@ -10,7 +10,7 @@ const Terminal = ({ commands }) => {
     const command = commands.find((command) => command.expression?.test(commandText))
     let response
 
-    if (!command) response = 'Invalid command.'
+    if (!command) response = 'Invalid command'
     else response = command.handle(commandText)
 
     setHistory([...history, { id: uuidv4(), command: commandText, response }])
