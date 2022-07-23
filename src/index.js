@@ -1,10 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import './styles.css'
 import Terminal from './Terminal'
 import commands from './commands'
 
+const container = document.getElementById('root')
+const root = createRoot(container)
 const App = () => <Terminal commands={commands} />
-
-const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)
+root.render(<App />)
