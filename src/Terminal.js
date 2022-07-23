@@ -28,7 +28,7 @@ const Terminal = ({ commands }) => {
     const command = allCommands.find((command) => command.expression?.test(commandText))
     let response
 
-    if (!command) response = 'Invalid command'
+    if (!command) response = 'Invalid command. Type "help" for all available commands.'
     else response = command.handle(commandText)
 
     setHistory([...history, { id: history.length + 1, command: commandText, response }])
