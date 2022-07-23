@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function History({ history }) {
+const History = ({ history }) => {
   return (
     <>
       {history.map((h) => (
@@ -12,3 +12,5 @@ export default function History({ history }) {
     </>
   )
 }
+
+export default History

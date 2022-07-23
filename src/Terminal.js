@@ -3,10 +3,10 @@ import CommandLine from './CommandLine'
 import History from './History'
 import uuidv4 from 'uuid/v4'
 
-export default function Terminal({ commands }) {
+const Terminal = ({ commands }) => {
   const [history, setHistory] = useState([])
 
-  function handleCommand(commandText) {
+  const handleCommand = (commandText) => {
     const command = commands.find((command) => command.expression?.test(commandText))
     let response
 
@@ -23,3 +23,5 @@ export default function Terminal({ commands }) {
     </>
   )
 }
+
+export default Terminal

@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import './CommandLine.module.css'
 
-export default ({ handleCommand }) => {
+const CommandLine = ({ handleCommand }) => {
   const [command, setCommand] = useState('')
 
-  function handleCommandChange(event) {
+  const handleCommandChange = (event) => {
     setCommand(event.target.value)
   }
 
-  function handleCommandSubmit(event) {
+  const handleCommandSubmit = (event) => {
     event.preventDefault()
     handleCommand(command)
     setCommand('')
@@ -24,3 +24,5 @@ export default ({ handleCommand }) => {
     </>
   )
 }
+
+export default CommandLine
