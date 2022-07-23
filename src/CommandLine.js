@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import "./CommandLine.module.css";
+import React, { useState } from 'react'
+import './CommandLine.module.css'
 
 export default ({ handleCommand }) => {
-  const [command, setCommand] = useState("");
+  const [command, setCommand] = useState('')
 
   function handleCommandChange(event) {
-    setCommand(event.target.value);
+    setCommand(event.target.value)
   }
 
   function handleCommandSubmit(event) {
-    event.preventDefault();
-    handleCommand(command);
-    setCommand("");
+    event.preventDefault()
+    handleCommand(command)
+    setCommand('')
   }
 
   return (
@@ -22,5 +22,5 @@ export default ({ handleCommand }) => {
         </form>
       </div>
     </>
-  );
-};
+  )
+}
