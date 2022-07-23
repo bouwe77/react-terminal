@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './CommandLine.module.css'
 
 const CommandLine = ({ handleCommand }) => {
   const [command, setCommand] = useState('')
+  const inputRef = useRef(null)
 
   const handleCommandChange = (event) => {
     setCommand(event.target.value)
@@ -14,11 +15,16 @@ const CommandLine = ({ handleCommand }) => {
     setCommand('')
   }
 
+  useEffect(() => {
+    if (!inputRef.current) return
+    inputRef.current.focus()
+  }, [])
+
   return (
     <>
       <div>
         <form onSubmit={handleCommandSubmit}>
-          &gt; <input onChange={handleCommandChange} value={command} className="cursor" />
+          &gt; <input onChange={handleCommandChange} value={command} className="cursor" ref={inputRef} />
         </form>
       </div>
     </>
