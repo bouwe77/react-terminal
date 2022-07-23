@@ -4,7 +4,6 @@ import Help from './Help'
 import History from './History'
 
 const defaultHelpCommand = {
-  name: 'help',
   expression: /help/i,
   help: {
     example: 'help',
@@ -23,7 +22,7 @@ const Terminal = ({ commands }) => {
     },
   }
 
-  const allCommands = [helpCommand, ...commands]
+  const allCommands = [...commands, helpCommand]
 
   const handleCommand = (commandText) => {
     const command = allCommands.find((command) => command.expression?.test(commandText))
