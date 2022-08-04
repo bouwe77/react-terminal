@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
-import CommandLine from './CommandLine'
-import Help from './Help'
-import History from './History'
+import CommandLine from './command/CommandLine'
+import Help from './help/Help'
+import History from './history/History'
 import './styles.css'
 
 const defaultHelpCommand = {
