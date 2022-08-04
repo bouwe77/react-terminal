@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import CommandLine from './command/CommandLine'
+import Command from './command/Command'
 import Help from './help/Help'
 import History from './history/History'
 import './styles.css'
@@ -43,7 +43,7 @@ const Terminal = ({ commands }) => {
   return (
     <>
       <History history={history} />
-      <CommandLine handleCommand={handleCommand} history={history} />
+      <Command handleCommand={handleCommand} history={history} />
       <div ref={bottomRef} />
     </>
   )

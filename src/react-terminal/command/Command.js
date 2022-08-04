@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from 'react'
-import './CommandLine.module.css'
+import './Command.module.css'
 
-const CommandLine = ({ handleCommand, history }) => {
+const Command = ({ handleCommand, history }) => {
   const [localHistory, setLocalHistory] = useState(null)
 
   useEffect(() => {
@@ -89,4 +89,4 @@ const CommandLine = ({ handleCommand, history }) => {
   )
 }
 
-export default CommandLine
+export default Command
