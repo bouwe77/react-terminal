@@ -1,50 +1,69 @@
-import { useEffect, useRef, useState } from 'react'
+import { ChangeEventHandler, useEffect, useRef, useState } from 'react'
 import './Command.module.css'
 
-const Command = ({ handleCommand, history }) => {
-  const [localHistory, setLocalHistory] = useState(null)
+interface CommandProps {
+  handleCommand: (command: string) => void
+  history: string[]
+}
+
+interface Blah {
+  index: number
+  commands: string[]
+}
+
+const Command = ({ handleCommand, history }: CommandProps) => {
+  const [localHistory, setLocalHistory] = useState<Blah>({ index: 0, commands: [] })
 
   useEffect(() => {
     setLocalHistory({
       index: history.length,
-      commands: [...history.map((h) => h.command), ''],
+      commands: [...history, ''],
     })
   }, [history])
 
-  const inputRef = useRef(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
-  const handleCommandChange = (event) => {
+  const handleCommandChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+    if (!localHistory) return
     const updatedCommands = [...localHistory.commands]
     updatedCommands[localHistory.index] = event.target.value
-    setLocalHistory((prev) => ({
-      ...prev,
-      commands: updatedCommands,
-    }))
+    setLocalHistory((prev) => {
+      return {
+        ...prev,
+        commands: updatedCommands,
+      }
+    })
   }
 
-  const handleCommandSubmit = (event) => {
+  const handleCommandSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
+    if (!localHistory) return
     handleCommand(localHistory.commands[localHistory.index])
   }
 
-  const handleKeyUp = (event) => {
+  const handleKeyUp: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
+    if (!localHistory) return
     if (event.key === 'ArrowUp') {
       let newIndex = localHistory.index
       if (newIndex > 0) {
         newIndex--
-        setLocalHistory((prev) => ({
-          ...prev,
-          index: newIndex,
-        }))
+        setLocalHistory((prev) => {
+          return {
+            ...prev,
+            index: newIndex,
+          }
+        })
       }
     } else if (event.key === 'ArrowDown') {
       let newIndex = localHistory.index
       if (newIndex < localHistory.commands.length - 1) {
         newIndex++
-        setLocalHistory((prev) => ({
-          ...prev,
-          index: newIndex,
-        }))
+        setLocalHistory((prev) => {
+          return {
+            ...prev,
+            index: newIndex,
+          }
+        })
       }
     }
   }
