@@ -43,7 +43,7 @@ const Terminal = ({ commands }) => {
   return (
     <>
       <History history={history} />
-      <CommandLine handleCommand={handleCommand} />
+      <CommandLine handleCommand={handleCommand} history={history} />
       <div ref={bottomRef} />
     </>
   )
