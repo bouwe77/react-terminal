@@ -11,12 +11,6 @@ const Command = ({ handleCommand, history }) => {
     })
   }, [history])
 
-  // 1. Initieel: Maak kopie van huidige history
-  // 2. Voeg huidige command toe aan kopie (initeel lege string), en houd up to date
-  // 3. Houdt index bij van huidige command, initeel length - 1
-  // 4. Als je een command aanpast, zowel huidige als een vorige, kopie history updqten
-  // 5. Bij rerender van dit component, wordt de lokale history weer ververst
-
   const inputRef = useRef(null)
 
   const handleCommandChange = (event) => {
@@ -58,7 +52,6 @@ const Command = ({ handleCommand, history }) => {
   useEffect(() => {
     if (!inputRef.current) return
     inputRef.current.focus()
-    // put cursor at end of input
     inputRef.current.selectionStart = inputRef.current.selectionEnd = inputRef.current.value.length
   }, [])
 
