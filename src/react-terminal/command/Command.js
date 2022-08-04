@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './Command.module.css'
 
 const Command = ({ handleCommand, history }) => {
@@ -66,13 +66,6 @@ const Command = ({ handleCommand, history }) => {
 
   return (
     <>
-      {history.length}-{localHistory.index}-{localHistory.commands.length}-
-      {localHistory.commands.map((c, i) => (
-        <Fragment key={i}>
-          {i}: {c},
-        </Fragment>
-      ))}
-      -
       <div>
         <form onSubmit={handleCommandSubmit}>
           &gt;{' '}
